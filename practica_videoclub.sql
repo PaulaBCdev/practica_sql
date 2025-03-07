@@ -71,6 +71,11 @@ alter table direccion
 alter column codigo_postal type varchar(10)
 using codigo_postal::varchar;
 
+alter table socio 
+add column num_socio serial;
+
+drop table if exists carnet cascade;
+
 CREATE TABLE tmp_videoclub (
 	id_copia int4 NULL,
 	fecha_alquiler_texto date NULL,
@@ -619,10 +624,14 @@ insert into genero (nombre)
 select distinct genero from tmp_videoclub t_v
 order by genero;
 
+create unique index genero_sin_repetir on genero (lower(nombre));
+
 
 insert into director (nombre)
 select distinct director from tmp_videoclub t_v
 order by director;
+
+create unique index director_sin_repetir on director (lower(nombre));
 
 
 insert into direccion (codigo_postal, calle, numero, piso)
@@ -680,9 +689,9 @@ inner join direccion d on
 	d.numero = t.numero and
 	d.piso = t.piso;
 
-
-insert into carnet (id_socio)
-select distinct id from socio;
+create unique index dni_socio on socio(dni);
+create unique index numero_de_socio on socio(num_socio);
+create index telefono_socio on socio(telefono);
 
 
 insert into copia_pelicula (id_pelicula, prestado)
