@@ -689,7 +689,7 @@ inner join direccion d on
 	d.numero = t.numero and
 	d.piso = t.piso;
 
-create unique index dni_socio on socio(dni);
+create unique index dni_socio on socio(lower(dni));
 create unique index numero_de_socio on socio(num_socio);
 create index telefono_socio on socio(telefono);
 
@@ -719,6 +719,15 @@ inner join copia_pelicula c on c.id_pelicula = pelicula.id
 order by socio.id;
 
 
+create view peliculas_disponibles as
+select 
+	p.titulo as pelicula,
+	count(prestado) as copias_disponibles
+from copia_pelicula c
+inner join pelicula p on p.id = c.id_pelicula 
+where prestado = false
+group by p.titulo
+order by p.titulo;
 
 
 
