@@ -1,4 +1,4 @@
-#Práctica de Modelado de datos y SQL - Videoclub
+# Práctica de Modelado de datos y SQL - Videoclub
 
 ## Requisitos funcionales
 	- Registrar los **socios** del videoclub. Necesitamos:
