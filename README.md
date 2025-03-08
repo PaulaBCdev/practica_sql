@@ -2,24 +2,24 @@
 
 ## Requisitos funcionales
 - Registrar los **socios** del videoclub. Necesitamos:
-* Nombre
-* Apellidos
-* Fecha de nacimiento
-* Teléfono
-* DNI
-* Número de socio
+	* Nombre
+	* Apellidos
+	* Fecha de nacimiento
+	* Teléfono
+	* DNI
+	* Número de socio
 
 - Registrar la **direccion de correspondencia** del socio. No es requisito obligatorio. Necesitamos:
-* Código postal
-* Calle
-* Número
-* Piso
+	* Código postal
+	* Calle
+	* Número
+	* Piso
 	
 - Registrar las **películas**. Puedo tener más de una copia de cada una. Necesito:
-* Título
-* Género
-* Director
-* Sinopsis
+	* Título
+	* Género
+	* Director
+	* Sinopsis
 
 - A qué socio se le presta qué copia y cuándo. Es decir, registrar la fecha en la que se ha llevado la película y la fecha de devolución. Si no hay fecha de devolución es que está prestada.
 
